@@ -1,0 +1,34 @@
+[workspace]
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[target.win-64.dependencies]
+clang = ">=22.1.8"
+lld = ">=22.1.8"
+llvm-tools = ">=22.1.8"
+python = ">=3.14.6"
+bazel = "==7.4.1"
+
+[target.win-64.activation.env]
+JAVA_HOME = "%CONDA_PREFIX%/Library"
+BAZEL_LLVM = "%CONDA_PREFIX%/Library"
+
+[target.win-64.tasks]
+_link-python3 = { cmd = [
+  "cp",
+  "$CONDA_PREFIX/python.exe",
+  "$CONDA_PREFIX/python3.exe",
+] }
+build = { cmd = [
+  "bazel",
+  "build",
+  "--config=dbg",
+  "--config=win_clang",
+  "--repo_env=WHEEL_NAME=tf_nightly_cpu",
+  "//tensorflow/tools/pip_package:wheel",
+], depends-on = "_link-python3" }
+clean = { cmd = [
+  "bazel",
+  "clean",
+  "--expunge",
+] }

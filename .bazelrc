@@ -571,6 +571,8 @@ common:win_clang --config=clang_local
 common:win_clang --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-clang-cl
 common:win_clang --extra_execution_platforms=//tensorflow/tools/toolchains/win:x64_windows-clang-cl
 common:win_clang --host_platform=//tensorflow/tools/toolchains/win:x64_windows-clang-cl
+# https://github.com/bazelbuild/rules_cc/blob/3be6b9decc09a925bb448e3a0c0d401464e79407/cc/private/toolchain/windows_cc_toolchain_config.bzl#L687-L712
+common:win_clang --copt=/MD
 
 common:windows_x86_cpu_2022 --config=win_clang_base
 common:windows_x86_cpu_2022 --crosstool_top="//tensorflow/tools/toolchains/win2022/20241118:toolchain"

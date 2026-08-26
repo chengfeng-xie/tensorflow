@@ -1,0 +1,31 @@
+diff --git a/python/private/python_bootstrap_template.txt b/python/private/python_bootstrap_template.txt
+index 97177560..2fa7d9b0 100644
+--- a/python/private/python_bootstrap_template.txt
++++ b/python/private/python_bootstrap_template.txt
+@@ -329,10 +329,25 @@ def ExecuteFile(python_program, main_filename, args, env, module_space,
+   if not (IsWindows() or workspace or delete_module_space):
+     _RunExecv(python_program, argv, env)
+ 
++  kwargs = {}
++  do = True
++  while do:
++    do = False
++    if not IsWindows():
++      break
++    if not os.path.isabs(argv[0]):
++      break
++    path = os.path.normpath(argv[0])
++    if path.startswith("\\"):
++      # Exclude UNC or device paths.
++      break
++    kwargs["executable"] = "\\\\?\\" + path
++
+   ret_code = subprocess.call(
+     argv,
+     env=env,
+-    cwd=workspace
++    cwd=workspace,
++    **kwargs,
+   )
+ 
+   if delete_module_space:
