@@ -1644,6 +1644,11 @@ pywrap_library(
                 "-lm",
             ],
         }),
+        "tensorflow/python/_pywrap_tensorflow_common": select ({
+            "//tensorflow:windows": [
+                "/pdbpagesize:16384"
+            ],
+        }),
     },
     # buildifier: disable=unsorted-dict-items
     # @unsorted-dict-items
