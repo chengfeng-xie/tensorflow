@@ -1,0 +1,13 @@
+diff --git a/python/private/runtimes_manifest_workspace.bzl b/python/private/runtimes_manifest_workspace.bzl
+index c2da00ac..617fe1d6 100644
+--- a/python/private/runtimes_manifest_workspace.bzl
++++ b/python/private/runtimes_manifest_workspace.bzl
+@@ -606,7 +606,7 @@ a6797ad05c7d7f74a2cea28bf012f9199f4d6c1ed6d09f7adfeb9b3c538c6258  20260414/cpyth
+ 1c366767d203b722efbd5b3796d16a08436e8a328afd31e551289efba9bf56d1  20260414/cpython-3.14.4+20260414-x86_64-apple-darwin-freethreaded-install_only.tar.gz
+ 9ecb2b942e6698c04af10a63a3d73c0b2e8d8e11ce44933fbffe8651bef4577d  20260414/cpython-3.14.4+20260414-x86_64-apple-darwin-install_only.tar.gz
+ 5ccaecdb899431f393209647182def14b36d7398bd59be4fa73dd79b48b3f290  20260414/cpython-3.14.4+20260414-x86_64-pc-windows-msvc-freethreaded-install_only.tar.gz
+-9647bb46d3c236e34c1c11bbb7113444d9711811f0d11c39956168807a955b1a  20260414/cpython-3.14.4+20260414-x86_64-pc-windows-msvc-install_only.tar.gz
++478c4e14933bdcf2ba956f2956f02548c68b1d60fe58aa4e742f573b5797633e  https://github.com/chengfeng-xie/python-build-standalone/releases/download/20260414-bugfix-long-paths/cpython-3.14.4+20260414-x86_64-pc-windows-msvc-install_only.tar.gz
+ c1a845a79da56265dc49628bc3b9e20d34f04674fd2d637ee40cbe259d2b1b95  20260414/cpython-3.14.4+20260414-x86_64-unknown-linux-gnu-freethreaded-install_only.tar.gz
+ e17275eaf95ceb5877aa6816e209b7733f41fee401d39c3921b88fb73fc4a4ba  20260414/cpython-3.14.4+20260414-x86_64-unknown-linux-gnu-install_only.tar.gz
+ 12687a989a2384665577e1ef9864f33d4c074a1e69b38a8bac8d656531aefa3e  20260414/cpython-3.14.4+20260414-x86_64-unknown-linux-musl-install_only.tar.gz
