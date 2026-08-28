@@ -14,7 +14,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/compiler-rt22_win-64-22.1.8-h49e36cd_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.14-8_cp314.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2026c-h151e31d_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/win-64/bazel-7.4.1-hac47afa_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/win-64/bazel-7.7.1-hac47afa_1.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/bzip2-1.0.8-h0ad9c76_10.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/clang-22-22.1.8-default_hac490eb_2.conda
       - conda: https://conda.anaconda.org/conda-forge/win-64/clang-22.1.8-default_nocfg_hbb9487a_2.conda
@@ -130,9 +130,9 @@ packages:
   run_exports: {}
   size: 118849
   timestamp: 1784250406640
-- conda: https://conda.anaconda.org/conda-forge/win-64/bazel-7.4.1-hac47afa_1.conda
-  sha256: ef3f91ecc8d6474795b4d75631f27e3e5cb73edb6800eb195a3817f73389f1be
-  md5: 89d4fffb3715368812267f27aaa5ba08
+- conda: https://conda.anaconda.org/conda-forge/win-64/bazel-7.7.1-hac47afa_1.conda
+  sha256: ebc8d61e9db98f878716d5ba3ddb57c96af593a2cb848a4b97f46b388f699ab4
+  md5: 13314eb0e287e4130ccfdeca61043f1a
   depends:
   - openjdk >=21
   - posix
@@ -142,8 +142,8 @@ packages:
   license: Apache-2.0
   license_family: Apache
   run_exports: {}
-  size: 32802588
-  timestamp: 1752580721439
+  size: 30726966
+  timestamp: 1770704773102
 - conda: https://conda.anaconda.org/conda-forge/win-64/bzip2-1.0.8-h0ad9c76_10.conda
   sha256: 04767466ee9227c9c57ab2c6503e0149177d34111c7418d2f420297acb1eb229
   md5: c3301c058362f340100d91cd8be0393f

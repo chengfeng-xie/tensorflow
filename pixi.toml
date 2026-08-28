@@ -7,7 +7,7 @@ clang = ">=22.1.8"
 lld = ">=22.1.8"
 llvm-tools = ">=22.1.8"
 python = ">=3.14.6"
-bazel = "==7.4.1"
+bazel = ">=7.7.1,<8"
 
 [target.win-64.activation.env]
 JAVA_HOME = "%CONDA_PREFIX%/Library"
@@ -24,7 +24,7 @@ build = { cmd = [
   "build",
   "--config=dbg",
   "--config=win_clang",
-  "--repo_env=WHEEL_NAME=tf_nightly_cpu",
+  "--repo_env=WHEEL_NAME=tf_nightly",
   "//tensorflow/tools/pip_package:wheel",
 ], depends-on = "_link-python3" }
 clean = { cmd = [
