@@ -27,8 +27,12 @@ build = { cmd = [
   "--repo_env=WHEEL_NAME=tf_nightly",
   "//tensorflow/tools/pip_package:wheel",
 ], depends-on = "_link-python3" }
-clean = { cmd = [
+expunge = { cmd = [
   "bazel",
   "clean",
   "--expunge",
+] }
+clean = { cmd = [
+  "bazel",
+  "clean",
 ] }
