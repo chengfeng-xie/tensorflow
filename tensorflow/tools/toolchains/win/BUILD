@@ -43,7 +43,7 @@ platform(
     constraint_values = [
         "@platforms//cpu:x86_64",
         "@platforms//os:windows",
-        "@bazel_tools//tools/cpp:clang-cl",
+        "@rules_cc//cc/private/toolchain:clang-cl", # Necessary for Bazel 7
     ],
     exec_properties = {
         "container-image": "docker://gcr.io/tensorflow-testing/tf-win2019-rbe@sha256:d3577d20dea75966faf7fd03479c71462441937df5694259109c2ee1d002a3dd",

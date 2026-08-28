@@ -50,6 +50,16 @@ rules_shell_dependencies()
 
 rules_shell_toolchains()
 
+load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies", "rules_cc_toolchains")
+
+rules_cc_dependencies()
+
+rules_cc_toolchains()
+
+load("@rules_cc//cc:extensions.bzl", "compatibility_proxy_repo")
+
+compatibility_proxy_repo()
+
 # Initialize hermetic C++
 load(
     "@rules_ml_toolchain//cc/deps:cc_toolchain_deps.bzl",

@@ -1,0 +1,22 @@
+diff --git a/cc/private/toolchain/windows_cc_toolchain_config.bzl b/cc/private/toolchain/windows_cc_toolchain_config.bzl
+index 5d0d40f..15b9ae3 100644
+--- a/cc/private/toolchain/windows_cc_toolchain_config.bzl
++++ b/cc/private/toolchain/windows_cc_toolchain_config.bzl
+@@ -661,7 +661,7 @@ def _impl(ctx):
+                 ),
+                 flag_set(
+                     actions = [ACTION_NAMES.c_compile, ACTION_NAMES.cpp_compile],
+-                    flag_groups = [flag_group(flags = ["/MDd"])],
++                    flag_groups = [flag_group(flags = ["/MD"])],
+                     with_features = [with_feature_set(features = ["dbg"], not_features = ["static_link_msvcrt"])],
+                 ),
+                 flag_set(
+@@ -671,7 +671,7 @@ def _impl(ctx):
+                 ),
+                 flag_set(
+                     actions = all_link_actions,
+-                    flag_groups = [flag_group(flags = ["/DEFAULTLIB:msvcrtd.lib"])],
++                    flag_groups = [flag_group(flags = ["/DEFAULTLIB:msvcrt.lib"])],
+                     with_features = [with_feature_set(features = ["dbg"], not_features = ["static_link_msvcrt"])],
+                 ),
+             ],

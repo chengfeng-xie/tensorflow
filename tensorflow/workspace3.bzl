@@ -67,6 +67,17 @@ def workspace():
         ),
     )
 
+    tf_http_archive(
+        name = "rules_cc",
+        urls = tf_mirror_urls("https://github.com/bazelbuild/rules_cc/releases/download/0.2.0/rules_cc-0.2.0.tar.gz"),
+        strip_prefix = "rules_cc-0.2.0",
+        sha256 = "ae244f400218f4a12ee81658ff246c0be5cb02c5ca2de5519ed505a6795431e9",
+        patch_file = [
+            "//third_party/py:rules_cc_protobuf.patch",
+            "//third_party/py:rules_cc_bugfix_msvc_runtime.patch",
+        ],
+    )
+
     # Toolchains for ML projects hermetic builds.
     # Details: https://github.com/google-ml-infra/rules_ml_toolchain
     tf_http_archive(
