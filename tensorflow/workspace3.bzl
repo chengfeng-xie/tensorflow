@@ -74,7 +74,7 @@ def workspace():
         sha256 = "ae244f400218f4a12ee81658ff246c0be5cb02c5ca2de5519ed505a6795431e9",
         patch_file = [
             "//third_party/py:rules_cc_protobuf.patch",
-            "//third_party/py:rules_cc_bugfix_msvc_runtime.patch",
+            "//third_party/py:rules_cc_bugfix_tensorflow_builds.patch",
         ],
     )
 

@@ -1,5 +1,5 @@
 diff --git a/cc/private/toolchain/windows_cc_toolchain_config.bzl b/cc/private/toolchain/windows_cc_toolchain_config.bzl
-index 5d0d40f..15b9ae3 100644
+index 5d0d40f..32171d5 100644
 --- a/cc/private/toolchain/windows_cc_toolchain_config.bzl
 +++ b/cc/private/toolchain/windows_cc_toolchain_config.bzl
 @@ -661,7 +661,7 @@ def _impl(ctx):
@@ -20,3 +20,11 @@ index 5d0d40f..15b9ae3 100644
                      with_features = [with_feature_set(features = ["dbg"], not_features = ["static_link_msvcrt"])],
                  ),
              ],
+@@ -766,6 +766,7 @@ def _impl(ctx):
+                     flag_groups = [
+                         flag_group(
+                             flags = [
++                                "/DCOMPILER_MSVC",
+                                 "/DNOMINMAX",
+                                 "/D_WIN32_WINNT=0x0601",
+                                 "/D_CRT_SECURE_NO_DEPRECATE",
