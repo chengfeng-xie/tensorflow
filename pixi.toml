@@ -4,7 +4,7 @@ platforms = ["win-64"]
 
 [target.win-64.dependencies]
 clang = ">=22.1.8"
-lld = ">=22.1.8"
+lld = ">=23.1.0"
 llvm-tools = ">=22.1.8"
 python = ">=3.14.6"
 bazel = ">=7.7.1,<8"
