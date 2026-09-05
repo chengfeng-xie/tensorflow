@@ -358,8 +358,8 @@ common:dbg -c dbg
 #     --config=dbg --per_file_copt=+tensorflow/core/kernels/identity_op.*@-g
 # Since this .bazelrc file is synced between the tensorflow/tensorflow repo and
 # the openxla/xla repo, also include debug info for files under xla/.
-common:dbg --per_file_copt=+.*,-tensorflow.*,-xla.*@-g0
-common:dbg --per_file_copt=+tensorflow/core/kernels.*@-g0
+common:dbg --per_file_copt=+.*,-tensorflow.*,-xla.*@/clang:-g0
+common:dbg --per_file_copt=+tensorflow/core/kernels.*@/clang:-g0
 # for now, disable arm_neon. see: https://github.com/tensorflow/tensorflow/issues/33360
 common:dbg --cxxopt -DTF_LITE_DISABLE_X86_NEON
 # AWS SDK must be compiled in release mode. see: https://github.com/tensorflow/tensorflow/issues/37498
