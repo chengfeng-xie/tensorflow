@@ -26,8 +26,7 @@ limitations under the License.
 #include "absl/strings/str_format.h"
 #include "absl/strings/string_view.h"
 #include "llvm/Support/Regex.h"
-#include "llvm/Support/raw_ostream.h"
-#include "mlir/Bytecode/BytecodeWriter.h"  // from @llvm-project
+#include "llvm/Support/raw_os_ostream.h"
 #include "mlir/IR/BuiltinAttributes.h"  // from @llvm-project
 #include "mlir/IR/BuiltinOps.h"  // from @llvm-project
 #include "mlir/IR/OperationSupport.h"  // from @llvm-project
@@ -86,31 +85,15 @@ void PassDebugInstrumentation::DumpIrToFile(mlir::Pass* pass,
       "%s/%04d_%s%s_%s.mlir", dumps_dir, step_counter_,
       pass ? pass->getName().str() : "unknown", func_name, suffix.str());
 
-  std::string ir_str;
-  llvm::raw_string_ostream os(ir_str);
-  mlir::OpPrintingFlags flags;
-  if (elide_elements_larger_than_ >= 0) {
+  std::ofstream ir_file(filename);
+  if (ir_file.is_open()) {
+    llvm::raw_os_ostream os(ir_file);
+    mlir::OpPrintingFlags flags;
     flags.elideLargeElementsAttrs(elide_elements_larger_than_);
-  }
-  if (elide_resource_strings_larger_than_ >= 0) {
     flags.elideLargeResourceString(elide_resource_strings_larger_than_);
-  }
-  op->print(os, flags);
-  (void)tsl::WriteStringToFile(tsl::Env::Default(), filename, ir_str);
-
-  mlir::ModuleOp module_op = mlir::dyn_cast<mlir::ModuleOp>(op);
-  if (!module_op) {
-    module_op = op->getParentOfType<mlir::ModuleOp>();
-  }
-  if (module_op) {
-    std::string bc_filename = absl::StrFormat(
-        "%s/%04d_%s%s_%s.mlirbc", dumps_dir, step_counter_,
-        pass ? pass->getName().str() : "unknown", func_name, suffix.str());
-    std::string bc_str;
-    llvm::raw_string_ostream bc_os(bc_str);
-    if (mlir::succeeded(mlir::writeBytecodeToFile(module_op, bc_os))) {
-      (void)tsl::WriteStringToFile(tsl::Env::Default(), bc_filename, bc_str);
-    }
+    op->print(os, flags);
+    os.flush();
+    ir_file.flush();
   }
 }
 
