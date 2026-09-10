@@ -1836,6 +1836,8 @@ custom_op_cc_header_only_library(
     extra_deps = [
         "@com_google_absl//absl/strings",
         "@com_google_absl//absl/types:span",
+        "@com_google_absl//absl/log:check",
+        "//tensorflow/core/framework:tensor_shape",
     ],
     visibility = ["//visibility:public"],
     deps = [

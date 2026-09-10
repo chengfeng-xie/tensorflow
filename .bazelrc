@@ -572,6 +572,8 @@ common:win_clang --extra_toolchains=@local_config_cc//:cc-toolchain-x64_windows-
 common:win_clang --extra_execution_platforms=//tensorflow/tools/toolchains/win:x64_windows-clang-cl
 common:win_clang --host_platform=//tensorflow/tools/toolchains/win:x64_windows-clang-cl
 
+common:win_clang --per_file_copt=+tensorflow/lite.*@/Od,/Z7
+
 common:windows_x86_cpu_2022 --config=win_clang_base
 common:windows_x86_cpu_2022 --crosstool_top="//tensorflow/tools/toolchains/win2022/20241118:toolchain"
 common:windows_x86_cpu_2022 --extra_toolchains="//tensorflow/tools/toolchains/win2022/20241118:cc-toolchain-x64_windows-clang-cl"

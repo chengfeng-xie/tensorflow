@@ -1,0 +1,28 @@
+[workspace]
+channels = ["conda-forge"]
+platforms = ["win-64"]
+
+[target.win-64.dependencies]
+clang = ">=23.1.0"
+lld = ">=23.1.0"
+llvm-tools = ">=23.1.0"
+bazel = ">=7.7.1,<8"
+
+[target.win-64.activation.env]
+JAVA_HOME = "%CONDA_PREFIX%/Library"
+BAZEL_LLVM = "%CONDA_PREFIX%/Library"
+
+[target.win-64.tasks]
+build = { cmd = [
+  "bazel",
+  "build",
+  "--config=win_clang",
+  "--repo_env=WHEEL_NAME=tf_nightly",
+  "--repo_env=HERMETIC_PYTHON_VERSION=3.14",
+  "//tensorflow/tools/pip_package:wheel",
+] }
+clean = { cmd = [
+  "bazel",
+  "clean",
+  "--expunge",
+] }
