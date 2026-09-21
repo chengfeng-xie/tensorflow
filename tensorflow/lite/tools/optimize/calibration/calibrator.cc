@@ -253,15 +253,6 @@ TfLiteStatus LoggingEval(TfLiteContext* context, TfLiteNode* node) {
   // values but is inefficient.
   // Using moving average will also break this.
 
-  // Log input again to make sure the state tensors are captured after lstm
-  // cell.
-  for (int i : op_info.loggable_inputs) {
-    auto tensor = context->tensors[i];
-    TF_LITE_ENSURE_STATUS(
-        logger->LogTensorValue(op_info.subgraph_index, i, tensor.data.f,
-                               tensor.bytes / sizeof(float), error_reporter));
-  }
-
   for (int i : op_info.loggable_outputs) {
     auto tensor = context->tensors[i];
     TF_LITE_ENSURE_STATUS(
